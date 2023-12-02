@@ -1,0 +1,141 @@
+/* Media Query for small screens */
+@media only screen and (max-width:  1600px) {
+    /* Apply a basic font and background color */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+    }
+    
+    /* Style the header */
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    div {
+      display: flex;
+      flex-direction: column; /* Change to a column layout for small screens */
+      margin: 10px;
+    }
+    
+    /* 記入場所*/
+    aside {
+      width: 100%; /* Full width on small screens */
+      margin: auto;
+    }
+    
+    /* form */
+    form {
+      margin: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.89);
+    }
+    
+    form div {
+      margin-bottom: 20px;
+    }
+    
+    /* Adjust styles for smaller screens */
+    form .div0 label {
+      font-size: 20px;
+    }
+    
+    form .div1 .a,
+    form .div1 .b {
+      margin: 10px 0;
+      text-align: center;
+      font-size: 20px;
+    }
+    
+    form .div1 p {
+      font-size: 20px;
+    }
+    
+    .div2 {
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 0px;
+      width: 100%; /* Full width on small screens */
+    }
+    
+    .div2 label {
+      margin-top: 10px;
+      margin-right: 0;
+      font-size: 18px;
+    }
+    
+    #enterAmount {
+      text-align: center;
+      font-size: 20px;
+      width: 100%; /* Full width on small screens */
+      margin-bottom: 20px;
+    }
+    
+    .div2 button {
+      width: 100%; /* Full width on small screens */
+      margin-bottom: 20px;
+    }
+    
+    form label {
+      text-align: center;
+      font-size: 16px;
+      margin-left: 0;
+    }
+    
+    form select {
+      margin-left: 0;
+    }
+    
+    form p {
+      font-size: 20px;
+      margin-left: 0;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 20px;
+    }
+    
+    select,
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    button {
+      width: 100%; /* Full width on small screens */
+      background-color: #333;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* Style the main content */
+    main {
+      width: 100%;
+    }
+    
+    h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    li {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    }
