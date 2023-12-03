@@ -150,9 +150,9 @@ export default function App() {
         </main>
       </div>
       <footer>
-        <div>
-
-        </div>
+        <div>日本大学文理学部情報科学科 Webプログラミングの演習課題</div>
+        <div>5422021 望月晃星</div>
+        
       </footer>
     </>
   );
