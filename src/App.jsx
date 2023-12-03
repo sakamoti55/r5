@@ -106,14 +106,14 @@ export default function App() {
                 <input 
                   type="text" 
                   id="enterAmount" 
-                  placeholder="num" 
+                  placeholder="XXXX" 
                   value={amount}
                   onChange={(event) => setAmount(event.target.value) 
                 }         
                 >
                 </input>
               <form>         
-                <button onClick={handleClick}>Filter results</button>
+                <button onClick={handleClick}>RUN</button>
               </form>
             </div>
           </form>
@@ -149,6 +149,11 @@ export default function App() {
           </div>
         </main>
       </div>
+      <footer>
+        <div>
+
+        </div>
+      </footer>
     </>
   );
 }
