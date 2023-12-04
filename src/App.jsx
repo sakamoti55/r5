@@ -23,7 +23,7 @@ export default function App() {
     useEffect(() => {
         //関数
         const fetchData = async () => {
-            const url = await fetch("https://v6.exchangerate-api.com/v6/a2e107b618f039cf1ee3d80a/latest/USD");
+            const url = await fetch("https://v6.exchangerate-api.com/v6/1c9d624b63ec437939cb13a5/latest/USD");
             //const url = await fetch("public/rate.json");
             const result = await url.json();
             setData(result);
