@@ -2,6 +2,7 @@
   body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
+    margin: 0;
   }
 
   /* Style the header */
@@ -94,13 +95,9 @@
     margin-bottom: 20px;
   }
 
-  .div3 form {
-    width: 10%;
-  }
 
-  .div3 form button{
-
-    height:72%
+  .div3 button{
+    height:55px
   }
 
   .form1 select{

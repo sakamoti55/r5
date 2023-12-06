@@ -1,45 +1,54 @@
 import { useEffect, useState } from "react";
 
-//A国での通貨をB国での通貨価値に換算する
-async function fetchCountry(data, keepAcountry, keepBcountry) {
-    const Arate = data.conversion_rates[keepAcountry];
-    const Brate = data.conversion_rates[keepBcountry];
-
-    const ratio = parseFloat(Brate) / parseFloat(Arate);
-    return ratio;
-}
 
 
 export default function App() {
     const [data, setData] = useState(); //データを管理するステート(letより良い？っぽい)
     
-    const [exchangedAmount,setExchangedAmount] = useState();
-    const [amount, setAmount] = useState("");
+    const [exchangedAmount,setExchangedAmount] = useState("");
+    const [amount, setAmount] = useState("100");
     const [keepAcountry, setKeepAcountry] = useState("USD");
-    const [keepBcountry, setKeepBcountry] = useState("USD");
+    const [keepBcountry, setKeepBcountry] = useState("JPY");
     const [Acountry, setAcountry] = useState("USD");
-    const [Bcountry, setBcountry] = useState("USD");
+    const [Bcountry, setBcountry] = useState("JPY");
     //開いたとき、変更を加えたときに処理
+
     useEffect(() => {
-        //関数
-        const fetchData = async () => {
-            const url = await fetch("https://v6.exchangerate-api.com/v6/1c9d624b63ec437939cb13a5/latest/USD");
-            //const url = await fetch("public/rate.json");
-            const result = await url.json();
-            setData(result);
-        };
-    
-        fetchData();
+      const fetchData = async () => {
+
+        const url = await fetch("https://v6.exchangerate-api.com/v6/1c9d624b63ec437939cb13a5/latest/USD");
+        const result = await url.json();
+        setData(result);
+      };
+  
+      fetchData();
     }, []);
 
+    useEffect(() => {
+      handleClick();
+    
+    }, [data]);
+
+    //A国での通貨をB国での通貨価値に換算する
+    async function fetchCountry(data, keepAcountry, keepBcountry) {
+
+      const Arate = data.conversion_rates[keepAcountry];
+      const Brate = data.conversion_rates[keepBcountry];
+
+      const ratio = parseFloat(Brate) / parseFloat(Arate);
+      return ratio;
+    }
+
     async function handleClick(event) {
-        event.preventDefault();
-        
-        const newRatio = await fetchCountry(data, keepAcountry, keepBcountry);    
-        const roundedValue = parseFloat(((amount) * newRatio).toFixed(2));    
-        setExchangedAmount(roundedValue);
-        setAcountry(keepAcountry);
-        setBcountry(keepBcountry);
+      //多分ボタンを押すイベントが起きたときはpreventして、
+      //押していないときはpreventしないようにしている？
+      event && event.preventDefault();
+  
+      const newRatio = await fetchCountry(data, keepAcountry, keepBcountry);
+      const roundedValue = parseFloat((amount * newRatio).toFixed(2));
+      setExchangedAmount(roundedValue);
+      setAcountry(keepAcountry);
+      setBcountry(keepBcountry);
     }
 
     function changeCountry(event) {
@@ -47,8 +56,6 @@ export default function App() {
       const keep = keepAcountry;
       setKeepAcountry(keepBcountry);
       setKeepBcountry(keep);
-
-
     }
 
   return (
@@ -58,14 +65,14 @@ export default function App() {
       </header>
       <div>
         <aside>
-          <form class="form1">
+          <form className="form1">
             {/*label表示*/}
-            <div class="div0">
+            <div className="div0">
               <label htmlFor="category">Choose a Country to Country</label> 
             </div>
             {/*国変更*/}
-            <div class="div1">
-              <select class="a"
+            <div className="div1">
+              <select className="a"
                 id="category" 
                 //asyncは必要ない
                 onChange={(event) => setKeepAcountry(event.target.value)}
@@ -80,7 +87,7 @@ export default function App() {
 
               <p>→</p>
 
-              <select class="b"
+              <select className="b"
                 id="category2" 
                 onChange={(event) => setKeepBcountry(event.target.value)}
                 value={keepBcountry}//valueを用いて表示を変更する
@@ -93,7 +100,7 @@ export default function App() {
               </select>
             </div>
             {/*国切り替えボタン*/}
-            <div class="div2">
+            <div className="div2">
               {/*Enterキーでの誤実行を防ぐための処置 */}
               <form>
                 <button onClick={changeCountry}>⇌</button>
@@ -101,27 +108,24 @@ export default function App() {
               
             </div>
             {/**/}
-            <div class="div3">
+            <div className="div3">
               <label htmlFor="enterAmount">Enter amount:</label>
                 <input 
                   type="text" 
                   id="enterAmount" 
                   placeholder="XXXX" 
                   value={amount}
-                  onChange={(event) => setAmount(event.target.value) 
-                }         
+                  onChange={(event) => setAmount(event.target.value)}         
                 >
                 </input>
-              <form>         
-                <button onClick={handleClick}>RUN</button>
-              </form>
+                <button onClick={handleClick}>RUN</button>              
             </div>
           </form>
         </aside>
       </div>
-      <div class="maindiv">
+      <div className="maindiv">
         <main>
-          <div class="main1">
+          <div className="main1">
             <h2>
                 - {Acountry} to {Bcountry}
             </h2>
@@ -132,7 +136,7 @@ export default function App() {
             </h3>
             )}
           </div>
-          <div class="main2">
+          <div className="main2">
             {/*下に主要な国の通貨への両替だけピックアップして書くかも*/}
             <h2>
               - Exchange rate
