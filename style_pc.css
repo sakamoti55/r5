@@ -92,11 +92,11 @@
   
   .sets-container .set {
     display: flex;
-    margin-left:95px;
-    margin-right: 95px; /* セット間の余白を調整 */
+    margin-left:130px;
+    margin-right: 130px; /* セット間の余白を調整 */
   }
   .sets-container .set .icon{
-    width: 70px
+    width: 20%
   }
 
 

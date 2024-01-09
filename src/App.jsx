@@ -4,6 +4,7 @@ import JPYIcon from "/icons/jpn.png";
 import EUIcon from "/icons/eu.png";
 import UKIcon from "/icons/uk.png";
 import SFIcon from "/icons/suisu.png";
+import CHIcon from "/icons/ch.png";
 
 export default function App() {
     const [data, setData] = useState(); //データを管理するステート(letより良い？っぽい)
@@ -248,6 +249,29 @@ export default function App() {
                  </td>
                  <td>{data.conversion_rates.EUR}€</td>
                </tr>
+               <tr>
+                 <td>
+                 <img
+                  className="icon"
+                  src={UKIcon}
+                  alt="UK"
+                 />
+                 <span>GBP</span>
+                 </td>
+                 <td>{data.conversion_rates.GBP}￡</td>
+               </tr>
+               <tr>
+                 <td>
+                 <img
+                  className="icon"
+                  src={CHIcon}
+                  alt="CH"
+                 />
+                 <span>CNY</span>
+                 </td>
+                 <td>{data.conversion_rates.CNY}元</td>
+               </tr>
+
               </table> 
             )}
           </div>
